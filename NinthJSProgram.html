@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information Form Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+        }
+        h1 {
+            text-align: center;
+            color: gray;
+        }
+        form {
+            background-color: white;
+            width: 600px;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"], select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #aaa;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        .button {
+            background-color: gray;
+            border: none;
+            color: white;
+            padding: 12px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 8px 4px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>STUDENT INFORMATION FORM</h1>
+
+    <form name="StudentForm" onsubmit="return validateForm()" method="post" action="">
+        <label for="name">Name:</label>
+        <input type="text" name="Name" id="name" placeholder="Enter your name" required>
+
+        <label for="address">Address:</label>
+        <textarea name="Address" id="address" rows="3" placeholder="Enter your address" required></textarea>
+
+        <label for="city">City:</label>
+        <input type="text" name="City" id="city" placeholder="Enter your city" required>
+
+        <label for="state">State:</label>
+        <input type="text" name="State" id="state" placeholder="Enter your state" required>
+
+        <label>Gender:</label>
+        <input type="radio" name="Gender" value="Male" required> Male
+        <input type="radio" name="Gender" value="Female" required> Female
+        <input type="radio" name="Gender" value="Other" required> Other
+        <br><br>
+
+        <label for="mobile">Mobile Number:</label>
+        <input type="text" name="Mobile" id="mobile" placeholder="Enter your 10-digit mobile number" required>
+
+        <label for="email">Email ID:</label>
+        <input type="email" name="Email" id="email" placeholder="Enter your email ID" required>
+
+        <input type="submit" value="Submit" class="button">
+        <input type="reset" value="Reset" class="button">
+    </form>
+
+    <script>
+        function validateForm() {
+            var name = document.StudentForm.Name.value.trim();
+            var address = document.StudentForm.Address.value.trim();
+            var city = document.StudentForm.City.value.trim();
+            var state = document.StudentForm.State.value.trim();
+            var gender = document.StudentForm.Gender.value;
+            var mobile = document.StudentForm.Mobile.value.trim();
+            var email = document.StudentForm.Email.value.trim();
+
+            // Regular expressions
+            var regName = /^[A-Za-z\s]+$/;           // Only letters and spaces
+            var regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; // Email format
+            var regPhone = /^\d{10}$/;              // 10 digit number
+
+            // Validation checks
+            if (name === "" || !regName.test(name)) {
+                alert("Please enter a valid name (letters only).");
+                document.StudentForm.Name.focus();
+                return false;
+            }
+
+            if (address === "") {
+                alert("Please enter your address.");
+                document.StudentForm.Address.focus();
+                return false;
+            }
+
+            if (city === "" || !regName.test(city)) {
+                alert("Please enter a valid city name.");
+                document.StudentForm.City.focus();
+                return false;
+            }
+
+            if (state === "" || !regName.test(state)) {
+                alert("Please enter a valid state name.");
+                document.StudentForm.State.focus();
+                return false;
+            }
+
+            if (!gender) {
+                alert("Please select your gender.");
+                return false;
+            }
+
+            if (mobile === "" || !regPhone.test(mobile)) {
+                alert("Please enter a valid 10-digit mobile number.");
+                document.StudentForm.Mobile.focus();
+                return false;
+            }
+
+            if (email === "" || !regEmail.test(email)) {
+                alert("Please enter a valid email address.");
+                document.StudentForm.Email.focus();
+                return false;
+            }
+
+            // Success message
+            alert("Congratulations and Welcome! Your form has been submitted successfully.");
+            return true;
+        }
+    </script>
+
+</body>
+</html>

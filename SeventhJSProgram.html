@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Array Programs</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 30px;
+  }
+  h3 {
+    color: #007acc;
+    margin-top: 20px;
+  }
+  hr {
+    margin: 20px 0;
+  }
+</style>
+</head>
+
+<body>
+
+<h2>Experiment No: 07 - Title: Object as an Array</h2>
+
+<!-- Program 1: push() Method -->
+<h3>Program 1: Append an Object to an Array using push()</h3>
+<script>
+// program to append an object to an array
+function pushFunction() {
+    list.push("Four", "Five");
+    document.write("Array after push(): " + list + "<br><br>");
+}
+
+// Driver Code
+let list = ["One", "Two", "Three"];
+document.write("Original Array: " + list + "<br>");
+pushFunction();
+</script>
+
+<hr>
+
+<!-- Program 2: splice() Method -->
+<h3>Program 2: Insert Objects into an Array using splice()</h3>
+<script>
+// program to add new objects using splice() method
+function spliceFunction() {
+    list2.splice(2, 0, "Angular", "SQL");
+    document.write("Array after splice(): " + list2 + "<br><br>");
+}
+
+// Driver Code
+let list2 = ["HTML", "CSS", "JavaScript"];
+document.write("Original Array: " + list2 + "<br>");
+spliceFunction();
+</script>
+
+<hr>
+
+<!-- Program 3: unshift() Method -->
+<h3>Program 3: Add Objects at Beginning of Array using unshift()</h3>
+<script>
+// program to add elements at the beginning of array
+function unshiftFunction() {
+    list3.unshift("Apple", "Banana");
+    document.write("Array after unshift(): " + list3 + "<br><br>");
+}
+
+// Driver Code
+let list3 = ["Lotus", "Sunflower", "Rose"];
+document.write("Original Array: " + list3 + "<br>");
+unshiftFunction();
+</script>
+
+<hr>
+
+<!-- Program 4: Check if an Object is an Array -->
+<h3>Program 4: Check if an Object is an Array</h3>
+<script>
+// program to check if an object is an array
+function checkObject(arr) {
+    const result = Array.isArray(arr);
+    if (result) {
+        document.write(`[${arr}] is an array.`);
+    } else {
+        document.write(`${arr} is not an array.`);
+    }
+}
+
+// Driver Code
+const array = [1, 2, 3];
+document.write("<br><br>Checking array: ");
+checkObject(array);
+</script>
+
+</body>
+</html>
